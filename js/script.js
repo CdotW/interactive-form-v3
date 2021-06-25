@@ -117,46 +117,46 @@ form.addEventListener('submit', (e) => {
     }
     // Credit Card if and only if selected
     if (payment.value === 'credit-card') {
-        let cardVal = cardNum.value;
-        let cardReg = /^\d{13,16}$/;
-        if (cardReg.test(cardVal) === false) {
-        cardNum.parentElement.classList.add('not-valid');
-        cardNum.parentElement.classList.remove('valid');
-        cardNum.parentElement.lastElementChild.style.display = 'block';
-        e.preventDefault(); 
+            let cardVal = cardNum.value;
+            let cardReg = /^\d{13,16}$/;
+            if (cardReg.test(cardVal) === false) {
+            cardNum.parentElement.classList.add('not-valid');
+            cardNum.parentElement.classList.remove('valid');
+            cardNum.parentElement.lastElementChild.style.display = 'block';
+            e.preventDefault(); 
+            } else {
+            cardNum.parentElement.classList.add('valid');
+            cardNum.parentElement.classList.remove('not-valid');
+            cardNum.parentElement.lastElementChild.style.display = 'none';
+            }
+        //  Zip 5 digits
+        let zipNum = zip.value;
+        let zipReg = /^\d{5}$/;
+        if (zipReg.test(zipNum) === false) {
+            zip.parentElement.classList.add('not-valid');
+            zip.parentElement.classList.remove('valid');
+            zip.parentElement.lastElementChild.style.display = 'block';
+            zip.focus();
+            e.preventDefault();
         } else {
-        cardNum.parentElement.classList.add('valid');
-        cardNum.parentElement.classList.remove('not-valid');
-        cardNum.parentElement.lastElementChild.style.display = 'none';
+            zip.parentElement.classList.add('valid');
+            zip.parentElement.classList.remove('not-valid');
+            zip.parentElement.lastElementChild.style.display = 'none';
+        }
+
+        // CVV 3 didits
+        let cvvNum = cvv.value;
+        let cvvReg = /^\d{3}$/;
+        if (cvvReg.test(cvvNum) === false) {
+            cvv.parentElement.classList.add('not-valid');
+            cvv.parentElement.classList.remove('valid');
+            cvv.parentElement.lastElementChild.style.display = 'block';
+            cvv.focus();
+            e.preventDefault();
+        } else {
+            cvv.parentElement.classList.add('valid');
+            cvv.parentElement.classList.remove('not-valid');
+            cvv.parentElement.lastElementChild.style.display = 'none';
         }
     };
-    //  Zip 5 digits
-    let zipNum = zip.value;
-    let zipReg = /^\d{5}$/;
-    if (zipReg.test(zipNum) === false) {
-        zip.parentElement.classList.add('not-valid');
-        zip.parentElement.classList.remove('valid');
-        zip.parentElement.lastElementChild.style.display = 'block';
-        zip.focus();
-        e.preventDefault();
-    } else {
-        zip.parentElement.classList.add('valid');
-        zip.parentElement.classList.remove('not-valid');
-        zip.parentElement.lastElementChild.style.display = 'none';
-    }
-
-    // CVV 3 didits
-    let cvvNum = cvv.value;
-    let cvvReg = /^\d{3}$/;
-    if (cvvReg.test(cvvNum) === false) {
-        cvv.parentElement.classList.add('not-valid');
-        cvv.parentElement.classList.remove('valid');
-        cvv.parentElement.lastElementChild.style.display = 'block';
-        cvv.focus();
-        e.preventDefault();
-    } else {
-        cvv.parentElement.classList.add('valid');
-        cvv.parentElement.classList.remove('not-valid');
-        cvv.parentElement.lastElementChild.style.display = 'none';
-    }
 });
